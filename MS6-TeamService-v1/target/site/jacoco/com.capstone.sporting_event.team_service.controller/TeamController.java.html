@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TeamController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">team_service</a> &gt; <a href="index.source.html" class="el_package">com.capstone.sporting_event.team_service.controller</a> &gt; <span class="el_source">TeamController.java</span></div><h1>TeamController.java</h1><pre class="source lang-java linenums">package com.capstone.sporting_event.team_service.controller;
+
+import com.capstone.sporting_event.team_service.dto.TeamDisplayDTO;
+import com.capstone.sporting_event.team_service.dto.TeamDisplayWithPlayersDTO;
+import com.capstone.sporting_event.team_service.dto.TeamMapper;
+import com.capstone.sporting_event.team_service.dto.TeamRequestDTO;
+import com.capstone.sporting_event.team_service.models.TeamResponse;
+import com.capstone.sporting_event.team_service.models.TeamResponseWithBody;
+import com.capstone.sporting_event.team_service.service.TeamService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import static com.capstone.sporting_event.team_service.constants.Mapping.VERSION_1;
+import static com.capstone.sporting_event.team_service.constants.MessageMap.*;
+
+
+@RestController
+@RequestMapping(value=VERSION_1)
+<span class="fc" id="L25">public class TeamController {</span>
+    
+    @Autowired
+    TeamService teamService;
+    @Autowired
+    TeamMapper teamMapper;
+    @GetMapping(&quot;/team/id/{teamId}&quot;)
+    public TeamDisplayDTO getTeamById(@PathVariable int teamId) {
+<span class="fc" id="L33">        return teamMapper.toDisplayDTO(teamService.getTeam(teamId));</span>
+    }
+
+    @GetMapping(&quot;/team/name/{teamName}&quot;)
+    public TeamDisplayDTO getTeamByName(@PathVariable String teamName) {
+<span class="nc" id="L38">        return teamMapper.toDisplayDTO(teamService.getTeamByName(teamName));</span>
+    }
+
+    @GetMapping(&quot;/team/id/{teamId}/players&quot;)
+    public TeamDisplayWithPlayersDTO getTeamByNameWithPlayers(@PathVariable int teamId) {
+<span class="nc" id="L43">        return teamMapper.toDisplayWithPlayersDTO(teamService.getTeam(teamId));</span>
+    }
+    @GetMapping(&quot;/team/name/{teamName}/players&quot;)
+    public TeamDisplayWithPlayersDTO getTeamByNameWithPlayers(@PathVariable String teamName) {
+<span class="nc" id="L47">        return teamMapper.toDisplayWithPlayersDTO(teamService.getTeamByName(teamName));</span>
+    }
+
+    @GetMapping(&quot;/teams&quot;)
+    public List&lt;TeamDisplayWithPlayersDTO&gt; getTeams() {
+<span class="pc" id="L52">        return teamService.getAllTeams().stream().map(team-&gt;teamMapper.toDisplayWithPlayersDTO(team)).collect(Collectors.toList());</span>
+    }
+
+    @PostMapping(&quot;/team&quot;)
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseEntity&lt;TeamResponseWithBody&gt; addTeam(@RequestBody TeamRequestDTO teamDTO){
+
+<span class="fc" id="L59">        TeamResponseWithBody saveTeamResponse = TeamResponseWithBody.builder()</span>
+<span class="fc" id="L60">                .status(201)</span>
+<span class="fc" id="L61">                .message(SAVE_TEAM_SUCCESS)</span>
+<span class="fc" id="L62">                .body(teamMapper.toDisplayDTO(teamService.saveTeam(teamDTO)))</span>
+<span class="fc" id="L63">                .build();</span>
+
+
+
+<span class="fc" id="L67">        return new ResponseEntity&lt;&gt;(saveTeamResponse, HttpStatus.CREATED);</span>
+    }
+
+    @PutMapping(&quot;/team/{teamId}&quot;)
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity&lt;TeamResponseWithBody&gt; updateTeam(@PathVariable int teamId, @Valid @RequestBody TeamRequestDTO teamRequestDTO){
+
+<span class="fc" id="L74">        TeamResponseWithBody updateTeamResponse = TeamResponseWithBody.builder()</span>
+<span class="fc" id="L75">                .status(204)</span>
+<span class="fc" id="L76">                .message(UPDATE_TEAM_SUCCESS)</span>
+<span class="fc" id="L77">                .body(teamMapper.toDisplayDTO(teamService.updateTeam(teamId, teamRequestDTO)))</span>
+<span class="fc" id="L78">                .build();</span>
+
+<span class="fc" id="L80">        return new ResponseEntity&lt;&gt;(updateTeamResponse, HttpStatus.OK);</span>
+    }
+
+    @DeleteMapping(&quot;/team/{teamId}&quot;)
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public ResponseEntity&lt;TeamResponse&gt; deleteTeam(@PathVariable(&quot;teamId&quot;) int teamId){
+
+<span class="fc" id="L87">        teamService.deleteTeam(teamId);</span>
+
+<span class="fc" id="L89">        TeamResponse deleteTeamResponse = TeamResponse.builder()</span>
+<span class="fc" id="L90">                .status(202)</span>
+<span class="fc" id="L91">                .message(DELETE_TEAM_SUCCESS)</span>
+<span class="fc" id="L92">                .build();</span>
+
+<span class="fc" id="L94">        return new ResponseEntity&lt;&gt;(deleteTeamResponse, HttpStatus.ACCEPTED);</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TeamServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">team_service</a> &gt; <a href="index.source.html" class="el_package">com.capstone.sporting_event.team_service.service</a> &gt; <span class="el_source">TeamServiceImpl.java</span></div><h1>TeamServiceImpl.java</h1><pre class="source lang-java linenums">package com.capstone.sporting_event.team_service.service;
+
+import com.capstone.sporting_event.team_service.dto.TeamMapper;
+import com.capstone.sporting_event.team_service.dto.TeamRequestDTO;
+import com.capstone.sporting_event.team_service.entity.Team;
+import com.capstone.sporting_event.team_service.exceptions.TeamAlreadyExistException;
+import com.capstone.sporting_event.team_service.exceptions.TeamNotFoundException;
+import com.capstone.sporting_event.team_service.repository.TeamRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
+import java.util.List;
+import java.util.Optional;
+
+@Service
+@Transactional
+<span class="fc" id="L18">public class TeamServiceImpl implements TeamService {</span>
+
+    @Autowired
+    TeamRepository teamRepo;
+
+    @Autowired
+    TeamMapper teamMapper;
+
+    public Team saveTeam(TeamRequestDTO teamDTO){
+
+<span class="pc bpc" id="L28" title="1 of 2 branches missed.">        if(teamRepo.findByTeamNameIs(teamDTO.getTeamName()).isPresent())</span>
+<span class="nc" id="L29">            throw new TeamAlreadyExistException();</span>
+
+<span class="fc" id="L31">       return teamRepo.save(teamMapper.toEntity(teamDTO));</span>
+    }
+
+
+    public List&lt;Team&gt; getAllTeams() {
+<span class="fc" id="L36">        return teamRepo.findAll();</span>
+    }
+
+
+
+    public Team getTeam(int id) {
+
+<span class="fc" id="L43">        Optional&lt;Team&gt; team = teamRepo.findById(id);</span>
+
+<span class="fc bfc" id="L45" title="All 2 branches covered.">        if(team.isEmpty()){</span>
+<span class="fc" id="L46">            throw new TeamNotFoundException();</span>
+        }
+
+<span class="fc" id="L49">        return team.get();</span>
+    }
+
+    public Team getTeamByName(String teamName){
+<span class="fc" id="L53">        Optional&lt;Team&gt; team = teamRepo.findByTeamNameIs(teamName);</span>
+
+<span class="pc bpc" id="L55" title="1 of 2 branches missed.">        if(team.isEmpty()){</span>
+<span class="nc" id="L56">            throw new TeamNotFoundException();</span>
+        }
+
+<span class="fc" id="L59">        return team.get();</span>
+    }
+
+
+    public Team updateTeam(int id, TeamRequestDTO teamDTO){
+
+<span class="fc" id="L65">        Optional&lt;Team&gt; team = teamRepo.findById(id);</span>
+
+<span class="pc bpc" id="L67" title="1 of 2 branches missed.">        if(team.isEmpty()){</span>
+<span class="nc" id="L68">            throw new TeamNotFoundException();</span>
+        }
+
+<span class="fc" id="L71">        Team updatedTeam = team.get();</span>
+<span class="fc" id="L72">        updatedTeam.setTeamName(teamDTO.getTeamName());</span>
+
+<span class="fc" id="L74">        return teamRepo.save(updatedTeam);</span>
+    }
+
+    public void deleteTeam(int id) {
+<span class="fc" id="L78">        Optional&lt;Team&gt; team = teamRepo.findById(id);</span>
+
+<span class="fc bfc" id="L80" title="All 2 branches covered.">        if(team.isEmpty()) {</span>
+<span class="fc" id="L81">            throw new TeamNotFoundException();</span>
+        }
+
+<span class="fc" id="L84">        Team deletedTeam = team.get();</span>
+
+<span class="fc" id="L86">        deletedTeam.setActive(false);</span>
+<span class="fc" id="L87">        teamRepo.save(deletedTeam);</span>
+<span class="fc" id="L88">    }</span>
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

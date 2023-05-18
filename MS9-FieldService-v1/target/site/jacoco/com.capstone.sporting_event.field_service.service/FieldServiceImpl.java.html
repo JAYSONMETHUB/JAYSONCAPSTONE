@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FieldServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">field_service</a> &gt; <a href="index.source.html" class="el_package">com.capstone.sporting_event.field_service.service</a> &gt; <span class="el_source">FieldServiceImpl.java</span></div><h1>FieldServiceImpl.java</h1><pre class="source lang-java linenums">package com.capstone.sporting_event.field_service.service;
+
+import com.capstone.sporting_event.field_service.dto.FieldMapper;
+import com.capstone.sporting_event.field_service.dto.FieldRequestDTO;
+import com.capstone.sporting_event.field_service.entity.Field;
+import com.capstone.sporting_event.field_service.exceptions.FieldAlreadyExistException;
+import com.capstone.sporting_event.field_service.exceptions.FieldNotFoundException;
+import com.capstone.sporting_event.field_service.repository.FieldRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
+import java.util.List;
+import java.util.Optional;
+
+@Service
+@Transactional
+<span class="fc" id="L18">public class FieldServiceImpl implements FieldService {</span>
+
+    @Autowired
+    FieldRepository fieldRepo;
+
+    @Autowired
+    FieldMapper fieldMapper;
+
+    public Field saveField(FieldRequestDTO fieldDTO){
+
+<span class="pc bpc" id="L28" title="1 of 2 branches missed.">        if(fieldRepo.findByFieldNameIs(fieldDTO.getFieldName()).isPresent())</span>
+<span class="nc" id="L29">            throw new FieldAlreadyExistException();</span>
+
+<span class="fc" id="L31">       return fieldRepo.save(fieldMapper.toEntity(fieldDTO));</span>
+    }
+
+
+    public List&lt;Field&gt; getAllFields() {
+<span class="fc" id="L36">        return fieldRepo.findAll();</span>
+    }
+
+
+
+    public Field getField(int id) {
+
+<span class="fc" id="L43">        Optional&lt;Field&gt; field = fieldRepo.findById(id);</span>
+
+<span class="fc bfc" id="L45" title="All 2 branches covered.">        if(field.isEmpty()){</span>
+<span class="fc" id="L46">            throw new FieldNotFoundException();</span>
+        }
+
+<span class="fc" id="L49">        return field.get();</span>
+    }
+
+    public Field getFieldByName(String fieldName){
+<span class="fc" id="L53">        Optional&lt;Field&gt; field = fieldRepo.findByFieldNameIs(fieldName);</span>
+
+<span class="pc bpc" id="L55" title="1 of 2 branches missed.">        if(field.isEmpty()){</span>
+<span class="nc" id="L56">            throw new FieldNotFoundException();</span>
+        }
+
+<span class="fc" id="L59">        return field.get();</span>
+    }
+
+
+    public Field updateField(int id, FieldRequestDTO fieldDTO){
+
+<span class="fc" id="L65">        Optional&lt;Field&gt; field = fieldRepo.findById(id);</span>
+
+<span class="pc bpc" id="L67" title="1 of 2 branches missed.">        if(field.isEmpty()){</span>
+<span class="nc" id="L68">            throw new FieldNotFoundException();</span>
+        }
+
+<span class="fc" id="L71">        Field updatedField = field.get();</span>
+
+<span class="fc" id="L73">        updatedField.setFieldAddress(fieldDTO.getFieldAddress());</span>
+<span class="fc" id="L74">        updatedField.setFieldName(fieldDTO.getFieldName());</span>
+<span class="fc" id="L75">        updatedField.setCapacity(fieldDTO.getCapacity());</span>
+
+<span class="fc" id="L77">        return fieldRepo.save(updatedField);</span>
+    }
+
+    public void deleteField(int id) {
+<span class="fc" id="L81">        Optional&lt;Field&gt; field = fieldRepo.findById(id);</span>
+
+<span class="fc bfc" id="L83" title="All 2 branches covered.">        if(field.isEmpty()) {</span>
+<span class="fc" id="L84">            throw new FieldNotFoundException();</span>
+        }
+
+<span class="fc" id="L87">        Field deletedField = field.get();</span>
+
+<span class="fc" id="L89">        deletedField.setActive(false);</span>
+<span class="fc" id="L90">        fieldRepo.save(deletedField);</span>
+<span class="fc" id="L91">    }</span>
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

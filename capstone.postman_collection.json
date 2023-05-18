@@ -1,0 +1,2378 @@
+{
+	"info": {
+		"_postman_id": "d2969cfe-dc36-48f5-8b49-0a86cbe09c96",
+		"name": "capstone",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10698277"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "Add user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\":\"asddddddd\",\r\n    \"password\":\"asdasadsdasd\",\r\n    \"email\":\"ysonsd@gd\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/ms4/api/v1/register/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"ms4",
+								"api",
+								"v1",
+								"register",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/v1/user/924",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"924"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\":\"shiyayonasdns\",\r\n    \"password\":\"asd\",\r\n    \"email\":\"ysons@gmail.casdoms\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/v1/user/95",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"95"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/v1/user/80",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"80"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login/ Authenticate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\":\"asddddddd\",\r\n    \"password\":\"asdasadsdasd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/ms4/api/v1/authenticate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"ms4",
+								"api",
+								"v1",
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "team",
+			"item": [
+				{
+					"name": "Add team",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"teamName\":\"jaysons teams\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8084/api/v1/team",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"api",
+								"v1",
+								"team"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all teams",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8084/ms6/api/v1/teams",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"ms6",
+								"api",
+								"v1",
+								"teams"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get team by name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8084/api/v1/team/name/jaysons team/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"api",
+								"v1",
+								"team",
+								"name",
+								"jaysons team",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get team by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8084/api/v1/team/id/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"api",
+								"v1",
+								"team",
+								"id",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "player",
+			"item": [
+				{
+					"name": "Add a new player with a team",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\":\"asdasd\",\n    \"lastName\":\"ConcepcionSs\",\n    \"country\":\"philippines\",\n    \"teamName\":\"jaysons team\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/api/v1/player",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"v1",
+								"player"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a new player without a team",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\":\"bro\",\n    \"lastName\":\"ConcepcionSs\",\n    \"country\":\"philippines\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/api/v1/player",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"v1",
+								"player"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all players",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/ms5/api/v1/player/id/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"ms5",
+								"api",
+								"v1",
+								"player",
+								"id",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all players by team name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/api/v1/players/team/name/jaysons teams",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"v1",
+								"players",
+								"team",
+								"name",
+								"jaysons teams"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all players by team id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/api/v1/players/team/id/33",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"v1",
+								"players",
+								"team",
+								"id",
+								"33"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "field",
+			"item": [
+				{
+					"name": "Add field",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fieldName\":\"field of appealss\",\r\n    \"fieldAddress\":\"address 2 electric bogaloos\",\r\n    \"capacity\": 123\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8087/api/v1/field",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"v1",
+								"field"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all field",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8087/api/v1/fields",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"v1",
+								"fields"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get field By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8087/api/v1/field/id/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"v1",
+								"field",
+								"id",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get field By Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8087/api/v1/field/name/asddddddd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"v1",
+								"field",
+								"name",
+								"asddddddd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update field",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fieldName\":\"field of appealss\",\r\n    \"fieldAddress\":\"asdd\",\r\n    \"capacity\":30\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8087/api/v1/field/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"v1",
+								"field",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete field",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8087/api/v1/field/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"v1",
+								"field",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tournament",
+			"item": [
+				{
+					"name": "Add tournament",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tournamentName\":\"TOURNAMENT OF APPEALssS\",\r\n    \"sportsCategory\":\"test categ\",\r\n    \"tournamentStyle\": \"esports\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8086/api/v1/tournament",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"api",
+								"v1",
+								"tournament"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all tournaments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8086/ms8/api/v1/tournaments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"ms8",
+								"api",
+								"v1",
+								"tournaments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get tournament By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8086/api/v1/tournament/id/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"api",
+								"v1",
+								"tournament",
+								"id",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get tournament By Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8086/api/v1/tournament/name/TOURNAMENT OF APPEALsS",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"api",
+								"v1",
+								"tournament",
+								"name",
+								"TOURNAMENT OF APPEALsS"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update tournament",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"tournamentName\":\"TOURNAMENT OF APPEALsSs\",\r\n    \"sportsCategory\":\"test categ\",\r\n    \"tournamentStyle\": \"esports\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8086/api/v1/tournament/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"api",
+								"v1",
+								"tournament",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete tournament",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8086/api/v1/tournament/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"api",
+								"v1",
+								"tournament",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ticket",
+			"item": [
+				{
+					"name": "Add ticket",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerName\":\"Jayson the customer\",\r\n    \"matchId\":2,\r\n    \"ticketPrice\": 1000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/api/v1/ticket",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"v1",
+								"ticket"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all ticket",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8088/api/v1/tickets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"v1",
+								"tickets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get ticket By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8088/api/v1/ticket/id/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"v1",
+								"ticket",
+								"id",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update ticket",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"customerName\":\"Jayson the customer\",\r\n    \"matchId\":2,\r\n    \"ticketPrice\": 1000\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/api/v1/ticket/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"v1",
+								"ticket",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete ticket",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8088/api/v1/ticket/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"v1",
+								"ticket",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "match",
+			"item": [
+				{
+					"name": "Add match",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"fieldId\":1,\r\n    \"tournamentId\": 1,\r\n    \"teamsId\":[1,2,5],\r\n    \"dateTime\":\"2018-03-29T13:34:00.000\"\r\n\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/api/v1/match",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"match"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all match",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/api/v1/matches",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"matches"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get match By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/api/v1/match/id/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"match",
+								"id",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update match",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n      \"fieldId\":1,\r\n    \"tournamentId\": 1,\r\n    \"teamsId\":[1,2],\r\n    \"dateTime\":\"2018-03-29T13:34:00.000\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/api/v1/match/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"match",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete match",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/api/v1/match/80",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"match",
+								"80"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "gateway",
+			"item": [
+				{
+					"name": "user/auth",
+					"item": [
+						{
+							"name": "Add user",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userName\":\"ysonconcepcions\",\r\n    \"password\":\"Password1@\",\r\n    \"email\":\"ysondsds@gmas\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/auth/ms4/api/v1/register/admin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"auth",
+										"ms4",
+										"api",
+										"v1",
+										"register",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Users",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhc2RkZGRkZGQiLCJleHAiOjE2ODQxNjkxMjksImlhdCI6MTY4NDEzMzEyOX0.Dg0MlHuWmvn0JRw9vOw5FMmsUqtiyfmbpADN8tbk5a8",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/auth/api/v1/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"auth",
+										"api",
+										"v1",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get User By ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/auth/api/v1/user/924",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"auth",
+										"api",
+										"v1",
+										"user",
+										"924"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update User",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userName\":\"shiyayonasdns\",\r\n    \"password\":\"asd\",\r\n    \"email\":\"ysons@gmail.casdoms\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/auth/api/v1/user/95",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"auth",
+										"api",
+										"v1",
+										"user",
+										"95"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete user",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ5c29uY29uY2VwY2lvbiIsImV4cCI6MTY4NDMwODU5NiwiaWF0IjoxNjg0MzA0OTk2fQ.JC8NdQnQDJS_abfRvcZVrYBQXTMhDmnFdL94OhVmAro",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/auth/ms4/api/v1/user/80",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"auth",
+										"ms4",
+										"api",
+										"v1",
+										"user",
+										"80"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login/ Authenticate Copy",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userName\":\"ysonconcepcions\",\r\n    \"password\":\"Password1@\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/auth/ms4/api/v1/authenticate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"auth",
+										"ms4",
+										"api",
+										"v1",
+										"authenticate"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "player",
+					"item": [
+						{
+							"name": "Add a new player with a team",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ5c29uY29uY2VwY2lvbnMiLCJleHAiOjE2ODQzMTI5NDgsImlhdCI6MTY4NDMwOTM0OH0._NtabAaDtkQWXWe2dBesHPkrNio7yL11dmF143zfWoM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"firstName\":\"jayson\",\n    \"lastName\":\" \",\n    \"teamName\":\"jaysons team\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/ms5/api/v1/player",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms5",
+										"api",
+										"v1",
+										"player"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add a new player without a team",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhc2RkZGRkZGQiLCJleHAiOjE2ODQyMjM1ODksImlhdCI6MTY4NDIxOTk4OX0.ru0oh634GxYgPZoZZPgvLxpdrPRhuwkwiK8Fp2Ldx2M",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"firstName\":\"broski\",\n    \"lastName\":\"concepcion\",\n    \"country\":\"philippines\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/ms5/api/v1/player",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms5",
+										"api",
+										"v1",
+										"player"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all players",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhc2RkZGRkZGQiLCJleHAiOjE2ODQyMDg5NjYsImlhdCI6MTY4NDIwNTM2Nn0.AeTNN8hECYJ8fJhLfa_CogrSU4DpA9uUy0pFCP_EnM8",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/ms5/api/v1/players/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms5",
+										"api",
+										"v1",
+										"players",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all players by team name Copy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ5c29uY29uY2VwY2lvbnMiLCJleHAiOjE2ODQzOTIxMzIsImlhdCI6MTY4NDM4ODUzMn0.CeMp_lYdVK0q9Lt38_31qMWDZwqnb1kp33FP892UIIs",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/ms5/api/v1/players/team/name/jaysons team/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms5",
+										"api",
+										"v1",
+										"players",
+										"team",
+										"name",
+										"jaysons team",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all players by team id Copy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhc2RkZGRkZGQiLCJleHAiOjE2ODQyMjM1ODksImlhdCI6MTY4NDIxOTk4OX0.ru0oh634GxYgPZoZZPgvLxpdrPRhuwkwiK8Fp2Ldx2M",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/ms5/api/v1/players/team/name/jaysons team",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms5",
+										"api",
+										"v1",
+										"players",
+										"team",
+										"name",
+										"jaysons team"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get player by id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhc2RkZGRkZGQiLCJleHAiOjE2ODQyMjM1ODksImlhdCI6MTY4NDIxOTk4OX0.ru0oh634GxYgPZoZZPgvLxpdrPRhuwkwiK8Fp2Ldx2M",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/ms5/api/v1/player/id/15",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms5",
+										"api",
+										"v1",
+										"player",
+										"id",
+										"15"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update player",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhc2RkZGRkZGQiLCJleHAiOjE2ODQyMjM1ODksImlhdCI6MTY4NDIxOTk4OX0.ru0oh634GxYgPZoZZPgvLxpdrPRhuwkwiK8Fp2Ldx2M",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\":\"boroski\",\r\n    \"lastName\":\"concepcion\",\r\n    \"country\":\"America\",\r\n    \"teamName\":\"jaysons team\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/ms5/api/v1/player/15",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms5",
+										"api",
+										"v1",
+										"player",
+										"15"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete player",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/auth/api/v1/user/80",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"auth",
+										"api",
+										"v1",
+										"user",
+										"80"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "team",
+					"item": [
+						{
+							"name": "Add team",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"teamName\":\"jaysons teams\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/ms6/api/v1/team",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms6",
+										"api",
+										"v1",
+										"team"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all teams",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ5c29uY29uY2VwY2lvbiIsImV4cCI6MTY4NDMwODU5NiwiaWF0IjoxNjg0MzA0OTk2fQ.JC8NdQnQDJS_abfRvcZVrYBQXTMhDmnFdL94OhVmAro",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/ms6/api/v1/teams",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms6",
+										"api",
+										"v1",
+										"teams"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get team by name",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ5c29uY29uY2VwY2lvbnMiLCJleHAiOjE2ODQzOTIxMzIsImlhdCI6MTY4NDM4ODUzMn0.CeMp_lYdVK0q9Lt38_31qMWDZwqnb1kp33FP892UIIs",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/ms6/api/v1/team/name/jaysons team/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms6",
+										"api",
+										"v1",
+										"team",
+										"name",
+										"jaysons team",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get team by id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhc2RkZGRkZGQiLCJleHAiOjE2ODQyMTMzMTcsImlhdCI6MTY4NDIwOTcxN30.w0Yurmr0hRgqsfW55F4nRH2f5GTshPcChDvj_nazESs",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/ms6/api/v1/team/id/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms6",
+										"api",
+										"v1",
+										"team",
+										"id",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update team",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ5c29uY29uY2VwY2lvbnMiLCJleHAiOjE2ODQzNzY4MTIsImlhdCI6MTY4NDM3MzIxMn0.kx_q2zemC1JUoEqVkL64xxw-nzCR5DVteqzj8MSPSmE",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"teamName\":\"jaysons teams\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/ms6/api/v1/team/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms6",
+										"api",
+										"v1",
+										"team",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete team",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ5c29uY29uY2VwY2lvbnMiLCJleHAiOjE2ODQzNzY4MTIsImlhdCI6MTY4NDM3MzIxMn0.kx_q2zemC1JUoEqVkL64xxw-nzCR5DVteqzj8MSPSmE",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/ms6/api/v1/team/234",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms6",
+										"api",
+										"v1",
+										"team",
+										"234"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "field",
+					"item": [
+						{
+							"name": "Add field",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhc2RkZGRkZGQiLCJleHAiOjE2ODQyMTEyNDIsImlhdCI6MTY4NDIwNzY0Mn0.dExy_Kfvb_oP1ufqf4VGXdkkpUDUzjLXbudnZcQiToM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fieldName\":\"field of appealss\",\r\n    \"fieldAddress\":\"address 2 electric bogaloos\",\r\n    \"capacity\": 123\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/ms9/api/v1/field/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms9",
+										"api",
+										"v1",
+										"field",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all field",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhc2RkZGRkZGQiLCJleHAiOjE2ODQyMTEyNDIsImlhdCI6MTY4NDIwNzY0Mn0.dExy_Kfvb_oP1ufqf4VGXdkkpUDUzjLXbudnZcQiToM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/ms9/api/v1/fields",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms9",
+										"api",
+										"v1",
+										"fields"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get field By ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/ms9/api/v1/field/id/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms9",
+										"api",
+										"v1",
+										"field",
+										"id",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get field By Name",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/ms9/api/v1/field/name/asddddddd",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms9",
+										"api",
+										"v1",
+										"field",
+										"name",
+										"asddddddd"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update field",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fieldName\":\"field of appealss\",\r\n    \"fieldAddress\":\"asdd\",\r\n    \"capacity\":30\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/ms9/api/v1/field/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms9",
+										"api",
+										"v1",
+										"field",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete field",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/ms9/api/v1/field/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms9",
+										"api",
+										"v1",
+										"field",
+										"3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "tournament",
+					"item": [
+						{
+							"name": "Add tournament",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"tournamentName\":\"TOURNAMENT OF APPEALssS\",\r\n    \"sportsCategory\":\"test categ\",\r\n    \"tournamentStyle\": \"esports\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/ms8/api/v1/tournament",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms8",
+										"api",
+										"v1",
+										"tournament"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all tournaments",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhc2RkZGRkZGQiLCJleHAiOjE2ODQyMTEyNDIsImlhdCI6MTY4NDIwNzY0Mn0.dExy_Kfvb_oP1ufqf4VGXdkkpUDUzjLXbudnZcQiToM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/ms8/api/v1/tournaments",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms8",
+										"api",
+										"v1",
+										"tournaments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get tournament By ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/ms8/api/v1/tournament/id/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms8",
+										"api",
+										"v1",
+										"tournament",
+										"id",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get tournament By Name",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhc2RkZGRkZGQiLCJleHAiOjE2ODQyMTEyNDIsImlhdCI6MTY4NDIwNzY0Mn0.dExy_Kfvb_oP1ufqf4VGXdkkpUDUzjLXbudnZcQiToM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/ms8/api/v1/tournament/name/TOURNAMENT OF APPEALsS",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms8",
+										"api",
+										"v1",
+										"tournament",
+										"name",
+										"TOURNAMENT OF APPEALsS"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update tournament",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\r\n    \"tournamentName\":\"TOURNAMENT OF APPEALsSs\",\r\n    \"sportsCategory\":\"test categ\",\r\n    \"tournamentStyle\": \"esports\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/ms8/api/v1/tournament/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms8",
+										"api",
+										"v1",
+										"tournament",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete tournament",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/ms8/api/v1/tournament/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms8",
+										"api",
+										"v1",
+										"tournament",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "match",
+					"item": [
+						{
+							"name": "Add match",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ5c29uY29uY2VwY2lvbnMiLCJleHAiOjE2ODQzOTU2MTAsImlhdCI6MTY4NDM5MjAxMH0.VSb33zx6oNe-r8UEmxrlJ60wOl893ldLfdrFM_9jKhQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n    \"fieldId\":1,\r\n    \"tournamentId\": 1,\r\n    \"teamsId\":[1,2],\r\n    \"dateTime\":\"2018-03-29T13:34:00.000\"\r\n\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/ms7/api/v1/match",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms7",
+										"api",
+										"v1",
+										"match"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all match",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhc2RkZGRkZGQiLCJleHAiOjE2ODQyMTEyNDIsImlhdCI6MTY4NDIwNzY0Mn0.dExy_Kfvb_oP1ufqf4VGXdkkpUDUzjLXbudnZcQiToM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/ms7/api/v1/matches",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms7",
+										"api",
+										"v1",
+										"matches"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get match By ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/ms7/api/v1/match/id/7",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms7",
+										"api",
+										"v1",
+										"match",
+										"id",
+										"7"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update match",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\r\n      \"fieldId\":1,\r\n    \"tournamentId\": 1,\r\n    \"teamsId\":[1,2],\r\n    \"dateTime\":\"2018-03-29T13:34:00.000\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/ms7/api/v1/match/7",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms7",
+										"api",
+										"v1",
+										"match",
+										"7"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete match",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/ms7/api/v1/match/80",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms7",
+										"api",
+										"v1",
+										"match",
+										"80"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "ticket",
+					"item": [
+						{
+							"name": "Add ticket",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"customerName\":\"Jayson the customer\",\r\n    \"matchId\":2,\r\n    \"ticketPrice\": 1000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/ms10/api/v1/ticket",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms10",
+										"api",
+										"v1",
+										"ticket"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all ticket",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ5c29uY29uY2VwY2lvbnMiLCJleHAiOjE2ODQzOTIxMzIsImlhdCI6MTY4NDM4ODUzMn0.CeMp_lYdVK0q9Lt38_31qMWDZwqnb1kp33FP892UIIs",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/ms10/api/v1/tickets",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms10",
+										"api",
+										"v1",
+										"tickets"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get ticket By ID",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ5c29uY29uY2VwY2lvbnMiLCJleHAiOjE2ODQzOTIxMzIsImlhdCI6MTY4NDM4ODUzMn0.CeMp_lYdVK0q9Lt38_31qMWDZwqnb1kp33FP892UIIs",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/ms10/api/v1/ticket/id/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms10",
+										"api",
+										"v1",
+										"ticket",
+										"id",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update ticket",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"customerName\":\"Jayson the customer\",\r\n    \"matchId\":2,\r\n    \"ticketPrice\": 1000\r\n    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/ms10/api/v1/ticket/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms10",
+										"api",
+										"v1",
+										"ticket",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete ticket",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/ms10/api/v1/ticket/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms10",
+										"api",
+										"v1",
+										"ticket",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

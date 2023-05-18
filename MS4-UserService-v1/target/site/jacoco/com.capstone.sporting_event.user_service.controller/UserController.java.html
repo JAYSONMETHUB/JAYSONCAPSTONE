@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">user_service</a> &gt; <a href="index.source.html" class="el_package">com.capstone.sporting_event.user_service.controller</a> &gt; <span class="el_source">UserController.java</span></div><h1>UserController.java</h1><pre class="source lang-java linenums">package com.capstone.sporting_event.user_service.controller;
+
+import com.capstone.sporting_event.user_service.dto.UserDisplayDTO;
+import com.capstone.sporting_event.user_service.dto.UserRequestDTO;
+import com.capstone.sporting_event.user_service.dto.UserMapper;
+import com.capstone.sporting_event.user_service.models.UserResponse;
+import com.capstone.sporting_event.user_service.models.UserResponseWithBody;
+import com.capstone.sporting_event.user_service.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import static com.capstone.sporting_event.user_service.constants.Mapping.VERSION_1;
+import static com.capstone.sporting_event.user_service.constants.MessageMap.*;
+
+
+@RestController
+@RequestMapping(value=VERSION_1)
+<span class="fc" id="L24">public class UserController {</span>
+    
+    @Autowired
+    UserService userService;
+
+    @Autowired
+    UserMapper userMapper;
+
+    @GetMapping(&quot;/user/{userId}&quot;)
+    public UserDisplayDTO getUser(@PathVariable int userId) {
+<span class="fc" id="L34">        return userMapper.toDisplayDTO(userService.getUser(userId));</span>
+    }
+
+
+    @GetMapping(&quot;/users&quot;)
+    public List&lt;UserDisplayDTO&gt; getUsers() {
+<span class="pc" id="L40">        return userService.getAllUsers().stream().map(user -&gt; userMapper.toDisplayDTO(user)).collect(Collectors.toList());</span>
+    }
+
+    @PostMapping(&quot;register/user&quot;)
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseEntity&lt;UserResponseWithBody&gt; addUser(@Valid @RequestBody UserRequestDTO userRequestDTO){
+
+
+<span class="fc" id="L48">        UserResponseWithBody saveUserResponse = UserResponseWithBody.builder()</span>
+<span class="fc" id="L49">                .status(201)</span>
+<span class="fc" id="L50">                .message(SAVE_USER_SUCCESS)</span>
+<span class="fc" id="L51">                .body(userMapper.toDisplayDTO(userService.saveUser(userRequestDTO)))</span>
+<span class="fc" id="L52">                .build();</span>
+
+<span class="fc" id="L54">        return new ResponseEntity&lt;&gt;(saveUserResponse, HttpStatus.CREATED);</span>
+    }
+
+    @PostMapping(&quot;register/admin&quot;)
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseEntity&lt;UserResponseWithBody&gt; addAdmin(@Valid @RequestBody UserRequestDTO userRequestDTO){
+
+<span class="fc" id="L61">        userService.saveUserAdmin(userRequestDTO);</span>
+
+<span class="fc" id="L63">        UserResponseWithBody saveUserAdminResponse = UserResponseWithBody.builder()</span>
+<span class="fc" id="L64">                .status(201)</span>
+<span class="fc" id="L65">                .message(SAVE_USER_SUCCESS)</span>
+<span class="fc" id="L66">                .body(userMapper.toDisplayDTO(userService.saveUser(userRequestDTO)))</span>
+<span class="fc" id="L67">                .build();</span>
+
+<span class="fc" id="L69">        return new ResponseEntity&lt;&gt;(saveUserAdminResponse, HttpStatus.CREATED);</span>
+    }
+
+    @PutMapping(&quot;/user/{userId}&quot;)
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity&lt;UserResponseWithBody&gt; updateUser(@PathVariable int userId, @Valid @RequestBody UserRequestDTO userRequestDTO){
+
+<span class="fc" id="L76">        UserResponseWithBody updateUserResponse = UserResponseWithBody.builder()</span>
+<span class="fc" id="L77">                .status(204)</span>
+<span class="fc" id="L78">                .message(UPDATE_USER_SUCCESS)</span>
+<span class="fc" id="L79">                .body(userMapper.toDisplayDTO(userService.updateUser(userId, userRequestDTO)))</span>
+<span class="fc" id="L80">                .build();</span>
+
+<span class="fc" id="L82">        return new ResponseEntity&lt;&gt;(updateUserResponse, HttpStatus.OK);</span>
+    }
+
+    @DeleteMapping(&quot;/user/{userId}&quot;)
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public ResponseEntity&lt;UserResponse&gt; deleteUser(@PathVariable(&quot;userId&quot;) int userId){
+
+<span class="fc" id="L89">        userService.deleteUser(userId);</span>
+
+<span class="fc" id="L91">        UserResponse deleteUserResponse = UserResponse.builder()</span>
+<span class="fc" id="L92">                .status(202)</span>
+<span class="fc" id="L93">                .message(DELETE_USER_SUCCESS)</span>
+<span class="fc" id="L94">                .build();</span>
+
+<span class="fc" id="L96">        return new ResponseEntity&lt;&gt;(deleteUserResponse, HttpStatus.ACCEPTED);</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

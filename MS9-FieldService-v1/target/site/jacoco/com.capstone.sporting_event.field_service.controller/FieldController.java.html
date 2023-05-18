@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FieldController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">field_service</a> &gt; <a href="index.source.html" class="el_package">com.capstone.sporting_event.field_service.controller</a> &gt; <span class="el_source">FieldController.java</span></div><h1>FieldController.java</h1><pre class="source lang-java linenums">package com.capstone.sporting_event.field_service.controller;
+
+import com.capstone.sporting_event.field_service.dto.FieldDisplayDTO;
+import com.capstone.sporting_event.field_service.dto.FieldMapper;
+import com.capstone.sporting_event.field_service.dto.FieldRequestDTO;
+import com.capstone.sporting_event.field_service.models.FieldResponse;
+import com.capstone.sporting_event.field_service.models.FieldResponseWithBody;
+import com.capstone.sporting_event.field_service.service.FieldService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import static com.capstone.sporting_event.field_service.constants.Mapping.VERSION_1;
+import static com.capstone.sporting_event.field_service.constants.MessageMap.*;
+
+
+@RestController
+@RequestMapping(value=VERSION_1)
+<span class="fc" id="L24">public class FieldController {</span>
+    
+    @Autowired
+    FieldService fieldService;
+    @Autowired
+    FieldMapper fieldMapper;
+
+    @GetMapping(&quot;/field/id/{fieldId}&quot;)
+    public FieldDisplayDTO getFieldById(@PathVariable int fieldId) {
+<span class="fc" id="L33">        return fieldMapper.toDisplayDTO(fieldService.getField(fieldId));</span>
+    }
+
+    @GetMapping(&quot;/field/name/{fieldName}&quot;)
+    public FieldDisplayDTO getFieldByName(@PathVariable String fieldName) {
+<span class="nc" id="L38">        return fieldMapper.toDisplayDTO(fieldService.getFieldByName(fieldName));</span>
+    }
+
+    @GetMapping(&quot;/fields&quot;)
+    public List&lt;FieldDisplayDTO&gt; getFields() {
+<span class="pc" id="L43">        return fieldService.getAllFields().stream().map(user -&gt; fieldMapper.toDisplayDTO(user)).collect(Collectors.toList());</span>
+    }
+
+
+    @PostMapping(&quot;/field&quot;)
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseEntity&lt;FieldResponseWithBody&gt; addField(@RequestBody FieldRequestDTO fieldDTO){
+
+<span class="fc" id="L51">        FieldResponseWithBody saveFieldResponse = FieldResponseWithBody.builder()</span>
+<span class="fc" id="L52">                .status(201)</span>
+<span class="fc" id="L53">                .message(SAVE_FIELD_SUCCESS)</span>
+<span class="fc" id="L54">                .body(fieldMapper.toDisplayDTO(fieldService.saveField(fieldDTO)))</span>
+<span class="fc" id="L55">                .build();</span>
+
+
+
+<span class="fc" id="L59">        return new ResponseEntity&lt;&gt;(saveFieldResponse, HttpStatus.CREATED);</span>
+    }
+
+    @PutMapping(&quot;/field/{fieldId}&quot;)
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity&lt;FieldResponseWithBody&gt; updateField(@PathVariable int fieldId, @Valid @RequestBody FieldRequestDTO fieldRequestDTO){
+
+<span class="fc" id="L66">        FieldResponseWithBody updateFieldResponse = FieldResponseWithBody.builder()</span>
+<span class="fc" id="L67">                .status(204)</span>
+<span class="fc" id="L68">                .message(UPDATE_FIELD_SUCCESS)</span>
+<span class="fc" id="L69">                .body(fieldMapper.toDisplayDTO(fieldService.updateField(fieldId, fieldRequestDTO)))</span>
+<span class="fc" id="L70">                .build();</span>
+
+<span class="fc" id="L72">        return new ResponseEntity&lt;&gt;(updateFieldResponse, HttpStatus.OK);</span>
+    }
+
+    @DeleteMapping(&quot;/field/{fieldId}&quot;)
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public ResponseEntity&lt;FieldResponse&gt; deleteField(@PathVariable(&quot;fieldId&quot;) int fieldId){
+
+<span class="fc" id="L79">        fieldService.deleteField(fieldId);</span>
+
+<span class="fc" id="L81">        FieldResponse deleteFieldResponse = FieldResponse.builder()</span>
+<span class="fc" id="L82">                .status(202)</span>
+<span class="fc" id="L83">                .message(DELETE_FIELD_SUCCESS)</span>
+<span class="fc" id="L84">                .build();</span>
+
+<span class="fc" id="L86">        return new ResponseEntity&lt;&gt;(deleteFieldResponse, HttpStatus.ACCEPTED);</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

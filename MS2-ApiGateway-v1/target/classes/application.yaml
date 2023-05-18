@@ -1,0 +1,81 @@
+spring:
+  application:
+    name: api-gateway
+
+  ##GATEWAY CONFIGURATIONS
+
+  cloud:
+    gateway:
+      routes:
+
+        ## Auth Service
+        - id: MS3-AuthService-v1
+          uri: lb://MS3-AuthService-v1
+          predicates:
+            - Path=/MS3-AuthService-v1/**
+          filters:
+            - StripPrefix=1
+
+        ## User Service
+        - id: MS4-UserService-v1
+          uri: lb://MS4-UserService-v1
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=1
+
+        ## Player Service
+        - id: MS5-PlayerService-v1
+          uri: lb://MS5-PlayerService-v1
+          predicates:
+            - Path=/ms5/api/v1/**
+          filters:
+            - AuthFilter
+
+        ## Team Service
+        - id: MS6-TeamService-v1
+          uri: lb://MS6-TeamService-v1
+          predicates:
+            - Path=/ms6/api/v1/**
+          filters:
+            - AuthFilter
+
+        ## Match Service
+        - id: MS7-MatchService-v1
+          uri: lb://MS7-MatchService-v1
+          predicates:
+            - Path=/ms7/api/v1/**
+          filters:
+            - AuthFilter
+
+        ## Tournament Service
+        - id: MS8-TournamentService-v1
+          uri: lb://MS8-TournamentService-v1
+          predicates:
+            - Path=/ms8/api/v1/**
+          filters:
+            - AuthFilter
+
+        ## Match Service
+        - id: MS9-FieldService-v1
+          uri: lb://MS9-FieldService-v1
+          predicates:
+            - Path=/ms9/api/v1/**
+          filters:
+            - AuthFilter
+
+        ## Match Service
+        - id: MS10-TicketService-v1
+          uri: lb://MS10-TicketService-v1
+          predicates:
+            - Path=/ms10/api/v1/**
+          filters:
+            - AuthFilter
+
+server:
+  port: 8080
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
